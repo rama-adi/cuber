@@ -14,4 +14,9 @@ class Thread extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function threadCategory() : BelongsTo
+    {
+        return $this->belongsTo(ThreadCategory::class);
+    }
 }

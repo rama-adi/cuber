@@ -17,6 +17,8 @@ class CreateThreadsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->string('title', 255);
+            $table->string('slug', 255);
+            $table->foreignId('thread_category_id')->references('id')->on('thread_categories')->cascadeOnDelete();
             $table->longText('content');
             $table->boolean('show_likes')->default(true);
             $table->boolean('enable_comments')->default(true);
