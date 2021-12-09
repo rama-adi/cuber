@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
+use App\Rules\HcaptchaSuccess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $request->validate([
+            'h-captcha-response' => ['required', 'min:1', new HcaptchaSuccess()]
+        ]);
+
         $request->authenticate();
 
         $request->session()->regenerate();

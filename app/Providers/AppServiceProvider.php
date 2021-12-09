@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -14,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+
         Str::macro('threadLink', function (string $value) {
             return Str::slug(
                 Str::limit($value, 40),
@@ -31,5 +34,11 @@ class AppServiceProvider extends ServiceProvider
                 'id'
             );
         });
+
+        Str::macro('previewThread', function (string $value) {
+            return Str::limit(strip_tags($value), 400, "...");
+        });
+
+        \Carbon\Carbon::setLocale(config('app.locale'));
     }
 }

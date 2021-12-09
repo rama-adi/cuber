@@ -15,7 +15,9 @@ class CreateThreadCategoriesTable extends Migration
     {
         Schema::create('thread_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->boolean('assignable')->default(true);
+            $table->string('name', 255);
+            $table->string('description', 255);
             $table->timestamps();
         });
     }

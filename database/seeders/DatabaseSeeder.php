@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ThreadCategorySeeder::class,
             ThreadSeeder::class,
-            ThreadReplySeeder::class
+            ThreadReplySeeder::class,
+            ThreadLikeSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ThreadShortlinkRedirectController;
+use App\Http\Controllers\ThreadViewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,23 +17,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('homepage');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
-Route::get('/thread/{id}-{slug}', function ($id, $slug){
-   return [
-       'id' => $id,
-       'slug' => $slug
-   ];
-})->name('thread.show');
+Route::get('/tid/{id}', ThreadShortlinkRedirectController::class)->name('shareThread');
+Route::view('peraturan-cuber', 'rules')->name('rules');
+Route::get('/thread/{id}-{slug}', ThreadViewController::class)->name('thread.show');
 
-Route::get('/kategori/{id}-{name}', function ($id, $slug){
+Route::get('jasa-konseling', function () {
+    return '';
+})->name('counseling.index');
+
+Route::get('/kategori/{id}-{name}', function ($id, $slug) {
     return [
         'id' => $id,
         'name' => $slug
     ];
 })->name('category.show');
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
