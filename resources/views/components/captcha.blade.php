@@ -14,6 +14,11 @@
             untuk membuktikan bahwa anda bukan robot
         </x-form-help>
     </div>
+    <script>
+        window.addEventListener('newReply', function () {
+            hcaptcha.reset();
+        });
+    </script>
 @else
     <div class="h-captcha" data-sitekey="{{env('HCAPTCHA_SITE_KEY')}}"></div>
 @endif

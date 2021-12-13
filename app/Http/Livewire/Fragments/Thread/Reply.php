@@ -65,6 +65,7 @@ class Reply extends Component
         ]);
 
         ThreadReplyPosted::dispatch($reply);
+        $this->dispatchBrowserEvent("newReply");
 
         $this->commentText = "";
     }
