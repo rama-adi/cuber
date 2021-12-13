@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="relative pb-3/5 -mt-6 md:pb-1/2">
-            <img src="{{asset('img/muud-promo-img/' . rand(1, 2) . '.png')}}" alt="MUUD"
+            <img src="https://cdn.curhat.website/static-web-assets/img/muud/{{rand(1,2)}}.png" alt="MUUD"
                  class="absolute inset-0 w-full h-full transform translate-x-6 translate-y-2 rounded-md object-cover object-left-top sm:translate-x-10 lg:translate-y-10">
         </div>
     </section>

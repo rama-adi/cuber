@@ -131,7 +131,8 @@
 
                 <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium">Jasa Konseling</a>
 
-                <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium">Produk</a>
+                <a href="{{route('sponsored-product')}}"
+                   class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium">Produk</a>
             </div>
             <div class="border-t border-gray-200 pt-4">
                 @guest
@@ -208,16 +209,14 @@
                             </x-slot>
                         </x-nav-item>
 
-                        <a href="#"
-                           class="text-gray-600 hover:bg-gray-50 group flex items-center px-3 py-2 text-sm font-medium rounded-md"
-                           aria-current="page">
-                            <!-- Heroicon name: outline/home -->
-                            <x-heroicon-s-shopping-cart
-                                class="text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6"/>
-                            <span class="truncate">
-                                Produk
-                            </span>
-                        </a>
+                        <x-nav-item :mobile="false" :href="route('sponsored-product')"
+                                    :active="Route::is('sponsored-product')" title="Belanja Produk">
+                            <x-slot name="icon">
+                                <x-heroicon-s-shopping-cart
+                                    class="flex-shrink-0 -ml-1 mr-3 h-6 w-6"/>
+                            </x-slot>
+                        </x-nav-item>
+
 
                         @auth
                             <form action="{{route('logout')}}" method="POST" class="w-full">
@@ -274,20 +273,23 @@
                                 <div class="mt-6 flow-root space-y-4">
                                     <div
                                         class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden">
-                                        <img src="{{asset('img/muud-promo-img/' . rand(1, 2) . '.png')}}" alt=""
-                                             class="object-cover">
+                                        <img
+                                            src="https://cdn.curhat.website/static-web-assets/img/muud/{{rand(1,2)}}.png"
+                                            alt="gambar promo muud"
+                                            class="object-cover">
                                     </div>
                                     <div>
                                         <p class="text-md font-medium text-gray-900">
-                                            Nama Produk
+                                            Wish in bottle by muud.things
                                         </p>
                                         <p class="text-sm text-gray-600">
-                                            Deskripsi singkat dari MUUD
+                                            Muud, botol yang membawa kebahagiaan dan dapat membuat kamu kembali
+                                            bersemangat
                                         </p>
                                     </div>
                                 </div>
                                 <div class="mt-6">
-                                    <a href="#"
+                                    <a href="{{route('sponsored-product')}}"
                                        class="w-full block text-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
                                         Detail Produk
                                     </a>

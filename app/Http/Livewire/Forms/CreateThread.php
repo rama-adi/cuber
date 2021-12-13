@@ -12,10 +12,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateThread extends Component implements HasForms
 {
     use InteractsWithForms;
+    use WithFileUploads;
 
     use AuthorizesRequests;
 
@@ -38,6 +40,9 @@ class CreateThread extends Component implements HasForms
             Components\RichEditor::make('content')
                 ->label('Isi diskusi')
                 ->required()
+                ->fileAttachmentsDisk(config('app.env') !== 'prod' ? 'local' : 'prod')
+                ->fileAttachmentsDirectory(config('app.env') !== 'prod' ? 'public/forum-attachments' : 'forum-attachments')
+                ->fileAttachmentsVisibility('public')
                 ->toolbarButtons([
                     'attachFiles',
                     'blockquote',

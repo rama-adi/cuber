@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/tid/{id}', ThreadShortlinkRedirectController::class)->name('shareThread');
 Route::view('peraturan-cuber', 'rules')->name('rules');
 Route::get('/thread/{id}-{slug}', ThreadViewController::class)->name('thread.show');
-
+Route::view('/produk-sponsor', 'sponsored-product')->name('sponsored-product');
 Route::get('jasa-konseling', function () {
     return '';
 })->name('counseling.index');
