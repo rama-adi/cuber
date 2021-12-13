@@ -1,8 +1,8 @@
 @props(['fieldName' => '', 'isLivewire' => true])
 @if($isLivewire)
     <div
-        x-data="{}"
-        x-init="hcaptcha.render('h-captcha-{{$fieldName}}', {sitekey: '{{env('HCAPTCHA_SITE_KEY')}}', callback: (e) => @this.set('{{$fieldName}}', e)})"
+        x-data="{sitekey: '{{config('hcaptcha.sitekey')}}', token: @entangle($fieldName)}"
+        x-init="hcaptcha.render('h-captcha-{{$fieldName}}', {sitekey: sitekey, callback: (e) => {token = e}})"
         class="space-y-2">
         <span class="text-sm font-medium leading-4 text-gray-700">
             CAPTCHA (anti-bot)
@@ -14,11 +14,9 @@
             untuk membuktikan bahwa anda bukan robot
         </x-form-help>
     </div>
-    <script>
-        window.addEventListener('newReply', function () {
+    <script>window.addEventListener('reloadCaptcha', function () {
             hcaptcha.reset();
-        });
-    </script>
+        });</script>
 @else
-    <div class="h-captcha" data-sitekey="{{env('HCAPTCHA_SITE_KEY')}}"></div>
+    <div class="h-captcha" data-sitekey="{{config('hcaptcha.sitekey')}}"></div>
 @endif
