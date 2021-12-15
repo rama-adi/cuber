@@ -41,7 +41,7 @@ class CreateThread extends Component implements HasForms
                 ->label('Isi diskusi')
                 ->required()
                 ->fileAttachmentsDisk('prod')
-                ->fileAttachmentsDirectory(prodenv('forum-attachments', 'public/forum-attachments'))
+                ->fileAttachmentsDirectory(config('app.is_prod') ? 'forum-attachments' : 'public/forum-attachments')
                 ->fileAttachmentsVisibility('public')
                 ->toolbarButtons([
                     'attachFiles',

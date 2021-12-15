@@ -34,18 +34,18 @@ return [
             'key' => env('PUSHER_APP_KEY'),
             'secret' => env('PUSHER_APP_SECRET'),
             'app_id' => env('PUSHER_APP_ID'),
-            'options' => prodenv([
+            'options' => config('app.is_prod') ? [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'encrypted' => true,
                 'host' => 'curhat.website',
                 'scheme' => 'http'
-            ], [
+            ] : [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'encrypted' => true,
                 'host' => '127.0.0.1',
                 'port' => 6001,
                 'scheme' => 'http'
-            ])
+            ]
         ],
 
 //        'pusher' => [
