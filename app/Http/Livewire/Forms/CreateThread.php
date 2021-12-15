@@ -40,8 +40,8 @@ class CreateThread extends Component implements HasForms
             Components\RichEditor::make('content')
                 ->label('Isi diskusi')
                 ->required()
-                ->fileAttachmentsDisk(config('app.env') !== 'prod' ? 'local' : 'prod')
-                ->fileAttachmentsDirectory(config('app.env') !== 'prod' ? 'public/forum-attachments' : 'forum-attachments')
+                ->fileAttachmentsDisk('prod')
+                ->fileAttachmentsDirectory(prodenv('forum-attachments', 'public/forum-attachments'))
                 ->fileAttachmentsVisibility('public')
                 ->toolbarButtons([
                     'attachFiles',
