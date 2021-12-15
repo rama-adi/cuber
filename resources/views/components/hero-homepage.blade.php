@@ -23,13 +23,9 @@
             </div>
         </div>
         <div class="relative pb-3/5 -mt-6 md:pb-1/2">
-            <img src="{{asset('img/clio-mascot.png')}}" alt="Mascot Clio"
-                 class="absolute inset-0 w-full h-full transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-10 lg:translate-y-20">
-            {{--        <video playsinline="" autoplay="" muted="" loop=""--}}
-            {{--               class="absolute inset-0 w-full h-full transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-10 lg:translate-y-20"--}}
-            {{--               __idm_id__="1546584065">--}}
-            {{--            <source src="https://tinkerwell.app/videos/tip-top-tinker-tool.mp4" type="video/mp4">--}}
-            {{--        </video>--}}
+            <img src="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/clio-1.png"
+                 alt="Mascot Clio"
+                 class="absolute bottom-0 right-2" style="height:300px; width: auto;">
         </div>
     </section>
 </div>

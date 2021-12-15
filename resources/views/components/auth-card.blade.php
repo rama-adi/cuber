@@ -12,8 +12,9 @@
                 {{ $sidebar ?? null }}
                 <div class="absolute top-0 bottom-0 left-0 transform rounded-xl"
                      style="background-color: rgba(22,111,191,0.6); transform: rotate(-70deg); right: -50rem"></div>
-                <img src="https://via.placeholder.com/800x800" alt="CLIO Login page"
-                     class="absolute bottom-10 right-10 h-32 w-32">
+                <img src="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/clio-2.png"
+                     alt="CLIO Login page"
+                     class="absolute bottom-10 right-10 w-32">
             </div>
         </div>
     </div>

@@ -148,16 +148,22 @@ function storageGet(key, storage) {
                 if (module && typeof module === "object" || typeof module === "function") {
                     for (let key of __getOwnPropNames(module))
                         if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, {get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable});
-  }
-  return target;
-};
-var __toModule = (module) => {
-  return __exportStar(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, "default", module && module.__esModule && "default" in module ? {get: () => module.default, enumerable: true} : {value: module, enumerable: true})), module);
-};
+                            __defProp(target, key, {
+                                get: () => module[key],
+                                enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable
+                            });
+                }
+                return target;
+            };
+            var __toModule = (module) => {
+                return __exportStar(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, "default", module && module.__esModule && "default" in module ? {
+                    get: () => module.default,
+                    enumerable: true
+                } : {value: module, enumerable: true})), module);
+            };
 
 // node_modules/@vue/shared/dist/shared.cjs.js
-var require_shared_cjs = __commonJS((exports) => {
+            var require_shared_cjs = __commonJS((exports) => {
   "use strict";
   Object.defineProperty(exports, "__esModule", {value: true});
   function makeMap(str, expectsLowerCase) {
@@ -31274,15 +31280,15 @@ module.exports = {
                 /** Used as the size to enable large array optimizations. */
                 var LARGE_ARRAY_SIZE = 200;
 
-  /** Error message constants. */
-  var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
-      FUNC_ERROR_TEXT = 'Expected a function',
-      INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
+                /** Error message constants. */
+                var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
+                    FUNC_ERROR_TEXT = 'Expected a function',
+                    INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
 
-  /** Used to stand-in for `undefined` hash values. */
-  var HASH_UNDEFINED = '__lodash_hash_undefined__';
+                /** Used to stand-in for `undefined` hash values. */
+                var HASH_UNDEFINED = '__lodash_hash_undefined__';
 
-  /** Used as the maximum memoize cache size. */
+                /** Used as the maximum memoize cache size. */
   var MAX_MEMOIZE_SIZE = 500;
 
   /** Used as the internal argument placeholder. */
@@ -48633,11 +48639,11 @@ function Item(fun, array) {
 Item.prototype.run = function () {
     this.fun.apply(null, this.array);
 };
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
+            process.title = 'browser';
+            process.browser = true;
+            process.env = {};
+            process.argv = [];
+            process.version = ''; // empty string to avoid regexp issues
             process.versions = {};
 
             function noop() {

@@ -6,7 +6,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:title" content="Cuber - Curhat bareng online!">
+    <meta property="og:site_name" content="Cuber">
+    <meta property="og:url" content="https://curhat.website">
+    <meta property="og:description" content="Yuk, curhat bareng dan dapatkan konseling secara anonim di cuber. Gratis!">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+          content="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/clio-2.png">
+
     <title>{{config('app.name')}}</title>
+
 
     <!-- Styles -->
     <style>[x-cloak] {

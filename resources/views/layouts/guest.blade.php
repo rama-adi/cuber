@@ -7,6 +7,15 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <meta property="og:title" content="Cuber - Curhat bareng online!">
+        <meta property="og:site_name" content="Cuber">
+        <meta property="og:url" content="https://curhat.website">
+        <meta property="og:description"
+              content="Yuk, curhat bareng dan dapatkan konseling secara anonim di cuber. Gratis!">
+        <meta property="og:type" content="website">
+        <meta property="og:image"
+              content="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/clio-2.png">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
