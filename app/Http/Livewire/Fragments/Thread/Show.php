@@ -8,7 +8,13 @@ use Livewire\Component;
 class Show extends Component
 {
     public Thread $thread;
-    protected $listeners = ['newCommentOnThread' => '$refresh'];
+
+    protected function getListeners()
+    {
+        return [
+            "echo:ThreadReply.{$this->thread->id},ThreadReplyPosted" => '$refresh',
+        ];
+    }
 
     public function mount(Thread $thread)
     {

@@ -28,13 +28,16 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/tid/{id}', ThreadShortlinkRedirectController::class)->name('shareThread');
+Route::get('/thread/{id}-{slug}', ThreadViewController::class)->middleware(\App\Http\Middleware\SecuredViaCaptcha::class)->name('thread.show');
+
 Route::view('peraturan-cuber', 'rules')->name('rules');
-Route::get('/thread/{id}-{slug}', ThreadViewController::class)->name('thread.show');
 Route::view('/produk-sponsor', 'sponsored-product')->name('sponsored-product');
 Route::get('jasa-konseling', function () {
     return '';
 })->name('counseling.index');
 
+Route::get('captcha-block', [\App\Http\Controllers\CaptchaVerifyController::class, 'show'])->name('captchablock.show');
+Route::post('captcha-block', [\App\Http\Controllers\CaptchaVerifyController::class, 'validateCaptcha'])->name('captchablock.validate');
 Route::get('/kategori/{id}-{name}', function ($id, $slug) {
     return [
         'id' => $id,

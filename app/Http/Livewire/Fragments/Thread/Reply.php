@@ -23,18 +23,13 @@ class Reply extends Component
     protected function getListeners()
     {
         return [
-            "echo-private:ThreadReply.{$this->thread->id},ThreadReplyPosted" => '$refresh',
+            "echo:ThreadReply.{$this->thread->id},ThreadReplyPosted" => '$refresh',
         ];
     }
 
     public function mount(Thread $thread)
     {
         $this->thread = $thread;
-    }
-
-    public function outputThread($t)
-    {
-        dd($t);
     }
 
     public function render()
@@ -55,7 +50,7 @@ class Reply extends Component
 
         $this->validate([
             'commentText' => ['required', 'min:1', 'max:500'],
-            'replyCaptchaResponse' => ['required', new HcaptchaSuccess()]
+            // 'replyCaptchaResponse' => ['required', new HcaptchaSuccess()]
         ]);
 
         $reply = ThreadReply::create([

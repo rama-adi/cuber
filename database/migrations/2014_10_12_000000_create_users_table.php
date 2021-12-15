@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->enum('user_type', ['USER', 'COUNSELOR', 'ADMIN', 'BANNED'])->comment("USER / COUNSELOR / ADMIN / BANNED");
             $table->string('banned_reason', 255)->nullable();
             $table->text('signature')->nullable();
+            $table->timestamp('captcha_verifies_at', 0)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

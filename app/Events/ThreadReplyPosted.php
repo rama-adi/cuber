@@ -34,6 +34,6 @@ class ThreadReplyPosted implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('ThreadReply.' . $this->threadReply->thread_id);
+        return new Channel('ThreadReply.' . $this->threadReply->thread_id);
     }
 }
