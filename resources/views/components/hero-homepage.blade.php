@@ -25,7 +25,7 @@
         <div class="relative pb-3/5 -mt-6 md:pb-1/2">
             <img src="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/clio-1.png"
                  alt="Mascot Clio"
-                 class="absolute bottom-0 right-2" style="height:300px; width: auto;">
+                 class="absolute bottom-0 right-2 hidden lg:block" style="height:300px; width: auto;">
         </div>
     </section>
 </div>

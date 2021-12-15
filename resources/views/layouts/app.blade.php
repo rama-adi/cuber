@@ -27,6 +27,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    @if(config('app.is_prod'))
+    <!-- Cloudflare Web Analytics -->
+        <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+                data-cf-beacon='{"token": "6c782579329c4440a1e8955542954c28"}'></script>
+        <!-- End Cloudflare Web Analytics -->
+    @endif
 </head>
 <body class="antialiased h-full" x-data="{showMobileMenu: false}" :class=" showMobileMenu ? 'overflow-hidden' : ''">
 <div class="min-h-full">
