@@ -18,10 +18,10 @@
     </span>
     @break
 
-    @case('ADMIN')
+    @case('SYSTEM')
     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800">
         <x-heroicon-s-shield-check class="h-4 w-4 mr-1"/>
-        <span>Admin</span>
+        <span>System</span>
     </span>
     @break
 
