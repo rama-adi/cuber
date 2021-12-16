@@ -85,22 +85,24 @@ class Reply extends Component
             'commentText' => ['required', 'min:1', 'max:500'],
         ]);
 
-        $reply = ThreadReply::create([
-            'thread_id' => $this->thread->id,
-            'user_id' => auth()->user()->id,
-            'content' => $this->commentText
-        ]);
+        if ($this->thread->enable_comments || auth()->user()->user_type === "ADMIN") {
+            $reply = ThreadReply::create([
+                'thread_id' => $this->thread->id,
+                'user_id' => auth()->user()->id,
+                'content' => $this->commentText
+            ]);
 
-        broadcast(
-            new ThreadReplyPosted([
-                'reply_id' => $reply->id,
-                'thread_id' => $reply->thread_id,
-                'username' => $reply->user->name,
-                'user_type' => $reply->user->user_type,
-                'created_at' => $reply->created_at->diffForHumans(),
-                'content' => $reply->content
-            ])
-        );
+            broadcast(
+                new ThreadReplyPosted([
+                    'reply_id' => $reply->id,
+                    'thread_id' => $reply->thread_id,
+                    'username' => $reply->user->name,
+                    'user_type' => $reply->user->user_type,
+                    'created_at' => $reply->created_at->diffForHumans(),
+                    'content' => $reply->content
+                ])
+            );
+        }
 
 
         $this->commentText = "";
