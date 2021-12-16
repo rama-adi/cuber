@@ -15,16 +15,16 @@ class ThreadReplyPosted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public ThreadReply $threadReply;
+    public array $reply;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(ThreadReply $threadReply)
+    public function __construct($reply)
     {
-        $this->threadReply = $threadReply;
+        $this->reply = $reply;
     }
 
     /**
@@ -34,6 +34,6 @@ class ThreadReplyPosted implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('ThreadReply.' . $this->threadReply->thread_id);
+        return new Channel('ThreadReply.' . $this->reply['thread_id']);
     }
 }
