@@ -1,4 +1,7 @@
-<x-app-layout>
+<x-app-layout
+    ogTitle="{{$thread->title}} - Cuber (Curhat Bareng)"
+    ogDescription="{{Str::previewThread($thread->content, 100)}}"
+>
     <nav class="flex" aria-label="Breadcrumb">
         <ol role="list" class="w-full bg-white rounded-md shadow px-6 flex space-x-4">
             <li class="flex">

@@ -29,16 +29,16 @@ class AppServiceProvider extends ServiceProvider
             \URL::forceScheme('https');
         }
 
-        Str::macro('threadLink', function (string $value) {
+        Str::macro('threadLink', function (string $value, int $length = 40) {
             return Str::slug(
-                Str::limit($value, 40),
+                Str::limit($value, $length),
                 '-',
                 'id'
             );
         });
 
-        Str::macro('previewThread', function (string $value) {
-            return Str::limit(strip_tags($value), 400, "...");
+        Str::macro('previewThread', function (string $value, int $length = 400) {
+            return Str::limit(strip_tags($value), $length);
         });
 
         \Carbon\Carbon::setLocale(config('app.locale'));
