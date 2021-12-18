@@ -82,7 +82,7 @@ class Reply extends Component
         Gate::authorize('create', ThreadReply::class);
 
         $this->validate([
-            'commentText' => ['required', 'min:1', 'max:500'],
+            'commentText' => ['required', 'min:1', 'max:1000'],
         ]);
 
         if ($this->thread->enable_comments || auth()->user()->user_type === "ADMIN") {

@@ -11,10 +11,18 @@ class Timeline extends Component
 {
     use WithPagination;
 
-    public $isRandomized = false;
+    public bool $isRandomized = false;
+    public ?int $categoryId = null;
 
     protected function getThreads(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
+        if ($this->categoryId)
+            return Thread::with(['user', 'threadCategory', 'likes'])
+                ->where('is_pinned', false)
+                ->where('thread_category_id', $this->categoryId)
+                ->inRandomOrder()
+                ->paginate(6);
+
         if ($this->isRandomized) {
             return Thread::with(['user', 'threadCategory', 'likes'])->where('is_pinned', false)->inRandomOrder()->paginate(6);
         } else {
@@ -24,7 +32,17 @@ class Timeline extends Component
 
     protected function getPinnedThreads(): Collection
     {
-        return Thread::with(['user', 'threadCategory', 'likes'])->where('is_pinned', true)->orderBy('created_at')->get();
+        if ($this->categoryId)
+            return Thread::with(['user', 'threadCategory', 'likes'])
+                ->where('is_pinned', true)
+                ->where('thread_category_id', $this->categoryId)
+                ->orderBy('created_at')
+                ->get();
+
+        return Thread::with(['user', 'threadCategory', 'likes'])
+            ->where('is_pinned', true)
+            ->orderBy('created_at')
+            ->get();
     }
 
     public function render()

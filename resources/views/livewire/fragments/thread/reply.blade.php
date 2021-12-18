@@ -39,6 +39,7 @@
                                     <div>
                                         <label for="comment" class="sr-only">Kirim pesan anda</label>
                                         <textarea id="comment" name="comment" rows="3"
+                                                  maxlength="1000"
                                                   wire:model.lazy="commentText"
                                                   class="shadow-sm block w-full focus:ring-blue-500 focus:border-blue-500 sm:text-sm border border-gray-300 rounded-md"
                                                   placeholder="Ketik pesan anda"></textarea>

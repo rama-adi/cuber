@@ -14,7 +14,7 @@
           content="Yuk, curhat bareng dan dapatkan konseling secara anonim di cuber. Gratis!">
     <meta property="og:type" content="website">
     <meta property="og:image"
-          content="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/clio-2.png">
+          content="https://cdn.curhat.website/static-web-assets/img/clio-2.png">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

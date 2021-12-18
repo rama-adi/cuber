@@ -38,10 +38,8 @@ Route::get('jasa-konseling', function () {
 
 Route::get('captcha-block', [\App\Http\Controllers\CaptchaVerifyController::class, 'show'])->name('captchablock.show');
 Route::post('captcha-block', [\App\Http\Controllers\CaptchaVerifyController::class, 'validateCaptcha'])->name('captchablock.validate');
-Route::get('/kategori/{id}-{name}', function ($id, $slug) {
-    return [
-        'id' => $id,
-        'name' => $slug
-    ];
+Route::get('/kategori/{id}-{name}', function (\App\Models\ThreadCategory $id, $slug) {
+    return view('category-show')->with(['category' => $id]);
 })->name('category.show');
+Route::view('/kategori', 'category-index')->name('category.index');
 require __DIR__ . '/auth.php';

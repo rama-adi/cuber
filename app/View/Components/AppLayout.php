@@ -6,6 +6,18 @@ use Illuminate\View\Component;
 
 class AppLayout extends Component
 {
+
+
+    /**
+     * @param string $ogTitle
+     * @param string $ogDescription
+     */
+    public function __construct(
+        public string $ogTitle = "Cuber - Curhat bareng online!",
+        public string $ogDescription = "Yuk, curhat bareng dan dapatkan konseling secara anonim di cuber. Gratis!")
+    {
+    }
+
     /**
      * Get the view / contents that represents the component.
      *
