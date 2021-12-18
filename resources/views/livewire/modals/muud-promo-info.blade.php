@@ -10,15 +10,22 @@
                 menggunakan
                 akun CUBER mu, kamu berhak mendapatkan badge (Donator) !</p>
             <h2>Cara mendapatkan:</h2>
-            <p>Kamu cukup menyertakan kode ini <code>CUBER-{{auth()->user()->id}}</code> pada kolom "PESAN" di Shopee.
-                Kami
-                akan memberikanmu badge (Donator) setelah melakukan pembelian!</p>
-            <h2>Contoh pesan:</h2>
-            <p>
-                <img
-                    src="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/muud/unique-code-pc.png"
-                    alt="Promo Muud">
-            </p>
+            @auth
+                <p>Kamu cukup menyertakan kode ini <code>CUBER-{{auth()->user()->id}}</code> pada kolom "PESAN" di
+                    Shopee.
+                    Kami
+                    akan memberikanmu badge (Donator) setelah melakukan pembelian!</p>
+                <h2>Contoh pesan:</h2>
+                <p>
+                    <img
+                        src="https://storage.googleapis.com/cdn.curhat.website/static-web-assets/img/muud/unique-code-pc.png"
+                        alt="Promo Muud">
+                </p>
+            @endauth
+            @guest
+                <p>Silakan masuk / daftarkan diri kamu ke CUBER. Setelah itu, kembali ke halaman ini. Kamu akan
+                    mendapatkan instruksi bagaimana cara mendapatkan promo menarik ini!</p>
+            @endguest
         </div>
     </div>
 </div>
