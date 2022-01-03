@@ -44,7 +44,7 @@
             </span>
             <span class="inline-flex items-center text-sm">
                 <button
-                    onclick="window.location.href = '{{route('thread.show', ['id'=>$thread->id, 'slug' => $thread->slug])}}'"
+                    onclick="window.location.href = '{{route('thread.show', ['id'=>$thread->id, 'slug' => $thread->slug])}}#viewcomments'"
                     type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                     <!-- Heroicon name: solid/thumb-up -->
                     <x-heroicon-s-chat class="h-5 w-5"/>
