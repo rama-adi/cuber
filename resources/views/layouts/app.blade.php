@@ -184,14 +184,15 @@
                             </button>
                         </form>
                     </div>
-                    <div class="mt-6 max-w-3xl mx-auto px-4 sm:px-6">
-                        <a href="#"
-                           class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
-                            Buat diskusi baru
-                        </a>
+                        <div class="mt-6 max-w-3xl mx-auto px-4 sm:px-6">
+                            <button
+                                @click="showMobileMenu = false; Livewire.emit('openModal', 'modals.create-thread')"
+                                class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                                Buat diskusi baru
+                            </button>
 
-                    </div>
-                @endauth
+                        </div>
+                    @endauth
             </div>
         </nav>
     </header>

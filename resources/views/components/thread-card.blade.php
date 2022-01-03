@@ -43,12 +43,14 @@
                 </div>
             </span>
             <span class="inline-flex items-center text-sm">
-                <div type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                <button
+                    onclick="window.location.href = '{{route('thread.show', ['id'=>$thread->id, 'slug' => $thread->slug])}}'"
+                    type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
                     <!-- Heroicon name: solid/thumb-up -->
                     <x-heroicon-s-chat class="h-5 w-5"/>
                     <span class="font-medium text-gray-900">{{$thread->threadReplies()->count('user_id')}}</span>
                     <span class="sr-only">likes</span>
-                </div>
+                </button>
             </span>
 
             @auth

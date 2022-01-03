@@ -1,4 +1,5 @@
-<section aria-labelledby="comments-title">
+<section aria-labelledby="comments-title" id="viewcomments" x-data="{}"
+         x-init="() => { if(window.location.hash === '#viewcomments'){document.getElementById('viewcomments').scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});} }">
     <div class="bg-white shadow sm:rounded-lg sm:overflow-hidden">
         <div class="divide-y divide-gray-200">
             <div class="px-4 py-5 sm:px-6">
